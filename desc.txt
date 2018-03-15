@@ -1,0 +1,26 @@
+访问学习php文件内容
+1、配置/Applications/XAMPP/xamppfiles/etc／http.conf文件
+将下面注释放开
+DocumentRoot "/Users/gaona02/Documents/gaona/study/php"
+<Directory "/Users/gaona02/Documents/gaona/study/php">
+    Options Indexes FollowSymLinks ExecCGI Includes
+    AllowOverride All
+    Allow from all
+    Require all granted
+</Directory>
+
+2、配置/Applications/XAMPP/xamppfiles/etc/extra/httpd-vhosts.conf
+将下面注释放开
+<VirtualHost *:80>
+    ServerAdmin postmaster@dummy-host2.localhost
+    DocumentRoot "/Users/gaona02/Documents/gaona/study/php"
+    ServerName mytest.spacefe.baidu.com
+    ServerAlias mytest.spacefe.baidu.com
+    ErrorLog "logs/spacefe-error.log"
+    CustomLog "logs/spacefe-access.log" combined
+</VirtualHost>
+
+3、启动（重启）apache
+/Applications/XAMPP/manager-osx
+
+4、访问http://mytest.spacefe.baidu.com/然后访问指定php文件
